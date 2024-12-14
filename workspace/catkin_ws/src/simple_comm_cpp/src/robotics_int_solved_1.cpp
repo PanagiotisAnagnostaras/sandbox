@@ -3,6 +3,7 @@ Ben wrote this node at 4AM... can you spot his mistakes?
 */
 #include <sstream>
 // todo extra paths for autocomplete
+// todo install git
 #include "ros/ros.h"
 #include "std_msgs/Int32MultiArray.h"
 #include "std_msgs/String.h"
