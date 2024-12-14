@@ -79,4 +79,5 @@ MemoryManagementSchool::MemoryManagementSchool()
     // Example 1
     std::cout << "--------- Example 1 ---------" << std::endl;
     std::shared_ptr<vector3> vec_ptr(new vector3(0,0,0));
+
 }

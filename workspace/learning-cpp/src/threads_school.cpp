@@ -103,6 +103,16 @@ void ThreadsSchool::driver()
     duration_serial = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
 
     std::cout << "3) Threaded execution took " << duration_serial.count() << std::endl;
+
+    std::cout << " calling signature for member and static methods " << std::endl;
+    std::thread t_member(&ThreadsSchool::memberFun, this);
+    std::thread t_static(&ThreadsSchool::staticFun);
+    std::thread t_member_with_args(&ThreadsSchool::memberFunArgs, this, 2);
+    std::thread t_static_with_args(&ThreadsSchool::staticFunArgs, 2);
+    t_member.join();
+    t_static.join();
+    t_member_with_args.join();
+    t_static_with_args.join();
 }
 
 void ThreadsSchool::myFun1()
@@ -135,4 +145,20 @@ int ThreadsSchool::computeFactorial(const int &m)
         }
     }
     return result;
+}
+
+void ThreadsSchool::memberFun() {
+    std::cout << "Inside memberFun" << std::endl;
+}
+
+void ThreadsSchool::staticFun() {
+    std::cout << "Inside staticFun" << std::endl;
+}
+
+void ThreadsSchool::memberFunArgs(int arg) {
+    std::cout << "Inside memberFunArgs " << arg << std::endl;
+}
+
+void ThreadsSchool::staticFunArgs(int arg) {
+    std::cout << "Inside staticFun " << arg << std::endl;
 }
