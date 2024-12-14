@@ -1,0 +1,1 @@
+g++ talker.cpp -o talker -I /opt/ros/noetic/include -L /opt/ros/noetic/lib -lroscpp -lstd_msgs -lpthread
