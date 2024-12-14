@@ -1,1 +1,0 @@
-docker pull osrf/ros:noetic-desktop-full
