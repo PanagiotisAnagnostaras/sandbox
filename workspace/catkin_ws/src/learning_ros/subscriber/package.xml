@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>subscriber</name>
+  <license>TODO</license>
+  <maintainer email="root@todo.todo">root</maintainer>
+  <version>0.0.0</version>
+  <description>The subscriber package</description>
+  <depend>catkin</depend>
+  <depend>std_msgs</depend>
+  <depend>roscpp</depend>
+</package>
