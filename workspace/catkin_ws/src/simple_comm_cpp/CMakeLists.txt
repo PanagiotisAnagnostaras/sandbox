@@ -18,3 +18,5 @@ target_link_libraries(talker ${catkin_LIBRARIES})
 add_executable(listener src/listener.cpp)
 target_link_libraries(listener ${catkin_LIBRARIES})
 
+add_executable(robotics_int_solved src/robotics_int_solved.cpp)
+target_link_libraries(robotics_int_solved ${catkin_LIBRARIES})

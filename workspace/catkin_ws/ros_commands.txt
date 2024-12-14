@@ -1,0 +1,2 @@
+rosnode list
+rospack find PKG_NAME
