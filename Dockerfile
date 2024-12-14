@@ -7,6 +7,8 @@ RUN apt-get update && apt-get install -y \
     python3-rosinstall-generator \
     python3-wstool \
     build-essential \
+    vim \
+    nano \
     && rm -rf /var/lib/apt/lists/*
 
 
