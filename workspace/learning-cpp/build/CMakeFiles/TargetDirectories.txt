@@ -1,3 +1,0 @@
-/home/panos/git_repos/garage/projects/learning-cpp/build/CMakeFiles/main.dir
-/home/panos/git_repos/garage/projects/learning-cpp/build/CMakeFiles/edit_cache.dir
-/home/panos/git_repos/garage/projects/learning-cpp/build/CMakeFiles/rebuild_cache.dir
