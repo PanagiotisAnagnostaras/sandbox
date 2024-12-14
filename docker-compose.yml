@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  ros-noetic:
+    build: .
+    container_name: ros-noetic-container
+    volumes:
+      - ./workspace:/workspace  # Mounts local workspace to the container
+    environment:
+      - DISPLAY=${DISPLAY}  # For GUI apps like Rviz or Gazebo (optional)
+    devices:
+      - "/dev/dri:/dev/dri"  # For GUI apps to access the display (optional)
+    network_mode: host  # For ROS networking (optional)
+    stdin_open: true
+    tty: true
+    command: bash
