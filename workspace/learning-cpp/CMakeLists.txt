@@ -24,3 +24,5 @@ target_include_directories(main PRIVATE include)
 
 target_link_libraries(main PRIVATE Threads::Threads)
 
+add_executable(cheatsheet src/cheatsheet.cpp)
+target_link_libraries(cheatsheet PRIVATE Threads::Threads)
