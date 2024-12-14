@@ -1,3 +1,14 @@
+# Nodes
+rosnode list
+rosrun PKG NODE
+
+# Topics
+rostopic ...
+
+# Packages
+rospack list
+rospack find PKG_NAME
+
 # How to setup the workspace
 
 ## Catkin workspace
@@ -19,11 +30,4 @@ Build and source workspace
 ```
 catkin_make
 source devel/setup.bash
-```
-
-
-## Useful commands
-```
-rostopic info/list
-rosrun pkg_name node_name
 ```
