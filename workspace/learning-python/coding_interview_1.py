@@ -23,12 +23,12 @@ print("~~~~~~~~~~~~~~~~~~~~~~~~")
 print("Question 3")
 print("~~~~~~~~~~~~~~~~~~~~~~~~")
 # What is wrong here
-# def print_uppercase(text):
-#     for letter in text:
-#       print(f"letter = {letter} text = {text}")
-#       print(letter.upper())
+def print_uppercase(text):
+    for letter in text:
+        print(f"letter = {letter} text = {text}")
+        print(letter.upper())
 
-# print_uppercase(["Test", "Python"])
+print_uppercase(["Test", "Python"])
 
 
 print("~~~~~~~~~~~~~~~~~~~~~~~~")
@@ -153,8 +153,7 @@ print("~~~~~~~~~~~~~~~~~~~~~~~~")
 print("Question 11")
 print("~~~~~~~~~~~~~~~~~~~~~~~~")
 
-## What is wrong here
-print("1) entered Question 1")
+print("1) entered Question 11")
 
 
 def caching_decorator(func):
@@ -212,57 +211,57 @@ print("~~~~~~~~~~~~~~~~~~~~~~~~")
 # The scheduler should take user input for the function to run, the time interval (in seconds)
 # between each run, and the total number of runs. Use Python’s threading or multiprocessing module
 # to develop the scheduler
-# import threading
-# import time
-# import typing
-# fun = input("please provide the method to run\n")
-# time_interval = float(input("please provide the time interval\n"))
-# number_of_runs = int(input("please provide the number of runs\n"))
+import threading
+import time
+import typing
+fun = "1+2" # input("please provide the method to run\n")
+time_interval = 0.5 #float(input("please provide the time interval\n"))
+number_of_runs = 4 # int(input("please provide the number of runs\n"))
 
-# ran_already = 0
-# threads = []
-# while ran_already<=number_of_runs-1:
-#     time.sleep(time_interval)
-#     threads.append(threading.Thread(target=lambda: eval(fun)))
-#     threads[-1].start()
-#     ran_already += 1
-# for thread in threads:
-#     threads: typing.List[threading.Thread]
-#     thread.join()
+ran_already = 0
+threads = []
+while ran_already<=number_of_runs-1:
+    time.sleep(time_interval)
+    threads.append(threading.Thread(target=lambda: eval(fun)))
+    threads[-1].start()
+    ran_already += 1
+for thread in threads:
+    threads: typing.List[threading.Thread]
+    thread.join()
 
 
 print("~~~~~~~~~~~~~~~~~~~~~~~~")
 print("Question 15")
 print("~~~~~~~~~~~~~~~~~~~~~~~~")
 # # What will be the output of the below code:
-# import threading
-# counter = 0
-# print("without lock")
-# def increment_counter():
-#     global counter
-#     for _ in range(100_000):
-#         counter += 1 # race condition: this is a non atomic operation (involves three steps: read, append, write back). Race condition between threads
+import threading
+counter = 0
+print("without lock")
+def increment_counter():
+    global counter
+    for _ in range(100_000):
+        counter += 1 # race condition: this is a non atomic operation (involves three steps: read, append, write back). Race condition between threads
 
-# threads = [threading.Thread(target=increment_counter) for _ in range(10)]
-# [thread.start() for thread in threads]
-# [thread.join() for thread in threads]
+threads = [threading.Thread(target=increment_counter) for _ in range(10)]
+[thread.start() for thread in threads]
+[thread.join() for thread in threads]
 
-# print(counter) # 100_000 * 10 != 832_891
+print(counter) # 100_000 * 10 != 832_891
 
-# print("with lock")
-# counter = 0
-# lock = threading.Lock()
-# def increment_counter():
-#     global counter
-#     for _ in range(100_000):
-#         with lock:
-#             counter += 1
+print("with lock")
+counter = 0
+lock = threading.Lock()
+def increment_counter():
+    global counter
+    for _ in range(100_000):
+        with lock:
+            counter += 1
 
-# threads = [threading.Thread(target=increment_counter) for _ in range(10)]
-# [thread.start() for thread in threads]
-# [thread.join() for thread in threads]
+threads = [threading.Thread(target=increment_counter) for _ in range(10)]
+[thread.start() for thread in threads]
+[thread.join() for thread in threads]
 
-# print(counter) # 100_000 * 10 = 1_000_000
+print(counter) # 100_000 * 10 = 1_000_000
 
 
 print("~~~~~~~~~~~~~~~~~~~~~~~~")
@@ -406,12 +405,12 @@ class MyResource:
 
     def __exit__(self, exc_type, exc_value, traceback):
         print(f"Releasing {self.name}")
- 
+
 def use_resource():
     with MyResource("Resource A") as res_a, MyResource("Resource B") as res_b:
         raise Exception("An error occurred")
-        
- 
+
+
 try:
     use_resource()
 except Exception as e:
@@ -425,7 +424,7 @@ class Meta(type):
     def __new__(cls, name, bases, attrs):
         attrs["greeting"] = "Hello, Python Engineers!"
         return super().__new__(cls, name, bases, attrs)
-    
+
 class MyClass(metaclass=Meta):
     pass
 obj = MyClass()
@@ -438,7 +437,7 @@ print("~~~~~~~~~~~~~~~~~~~~~~~~")
 # What will be the output of the below code:
 class DynamicAttributes:
     def __getattr__(self, name):
-       return name.upper()
+        return name.upper()
     def __getattribute__(self, name):
         if name.startswith("get_"):
             return super().__getattribute__(name[4:])
