@@ -1,0 +1,15 @@
+<package format="2">
+  <name>python_pkg</name>
+  <version>0.0.0</version>
+  <description>The python_pkg package</description>
+
+  <maintainer email="youremail@example.com">Your Name</maintainer>
+  <license>TODO</license>
+
+  <depend>catkin</depend>
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
+
+  <export>
+  </export>
+</package>
