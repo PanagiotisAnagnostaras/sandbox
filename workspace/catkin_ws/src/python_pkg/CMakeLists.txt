@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.0.2)
 project(python_pkg)
 
+set(SOURCE_FILES 
+  src/talker.py 
+  src/listener.py
+)
 find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
@@ -15,7 +19,7 @@ catkin_package()
 #############
 ## Install ##
 ############
-catkin_install_python(PROGRAMS src/talker.py
+catkin_install_python(PROGRAMS ${SOURCE_FILES}
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 #############
