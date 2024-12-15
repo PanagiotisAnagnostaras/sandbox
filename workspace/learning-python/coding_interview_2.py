@@ -84,9 +84,7 @@ def dec2quad(n: str):
 
 
 n = 12  # input(f"provide number in dec\n")
-print(
-    f"{n} in dec is {bin(int(n))} in bin, {dec2bin(n)} in bin {dec2quad(n)} in quad {quad2dec(dec2quad(n))} in dec and {bin2dec(dec2bin(n))} in dec"
-)
+print(f"{n} in dec is {bin(int(n))} in bin, {dec2bin(n)} in bin {dec2quad(n)} in quad {quad2dec(dec2quad(n))} in dec and {bin2dec(dec2bin(n))} in dec")
 
 # https://www.interviewkickstart.com/blogs/articles/advanced-python-coding-challenges
 print("~~~~~~~~~~~~~~~~~~~~~~~~")
@@ -101,21 +99,23 @@ format_number(1000000) should return "1,000,000"
 
 def format_number(num):
     num_str = str(num)
-    num_commas = len(num_str) // 3
-    chucks = []
-    for i in range(num_commas):
-        if i == num_commas - 1:
-            chucks.append(num_str[::-1][i * 3 :])
+    formatted_str = ""
+    pos = 0
+    for d in num_str[::-1]:
+        if pos == 2:
+            formatted_str = "." + d + formatted_str
+            pos = 0
         else:
-            chucks.append(num_str[::-1][i * 3 : (1 + i) * 3])
-    str_for = ""
-    for chuck in chucks[::-1]:
-        str_for = str_for + "," + chuck[::-1]
-    return str_for[1:]
+            formatted_str = d + formatted_str
+            pos += 1
+    if formatted_str[0] == ".":
+        formatted_str = formatted_str[1:]
+    return formatted_str
 
 
-num = 213_000_678
+num = 21_213_000_678
 print(f"1) before {num} after {format_number(num)}")
+
 
 # https://medium.com/@nikitasilaparasetty/python-interview-coding-questions-with-solutions-for-beginners-7f6d782defac
 
@@ -154,7 +154,7 @@ print("~~~~~~~~~~~~~~~~~~~~~~~~")
 def is_prime(n):
     nums_2_check = [i for i in range(n) if i != 0 and i != 1]
     for i in nums_2_check:
-        if n % (i) == 0:
+        if n % i == 0:
             return False
     return True
 
