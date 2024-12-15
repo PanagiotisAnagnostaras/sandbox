@@ -74,11 +74,7 @@ c: str = "hello"
 
 # Print function with alignment
 def print_variables(a, b, c, label):
-    print(
-        f"{label}) a = {str(a):<10} of type {str(type(a)):<20} at address {id(a):<20} "
-        f"b = {str(b):<10} of type {str(type(b)):<20} at address {id(b):<20} "
-        f"c = {str(c):<10} of type {str(type(c)):<20} at address {id(c):<20}"
-    )
+    print(f"{label}) a = {str(a):<10} of type {str(type(a)):<20} at address {id(a):<20} " f"b = {str(b):<10} of type {str(type(b)):<20} at address {id(b):<20} " f"c = {str(c):<10} of type {str(type(c)):<20} at address {id(c):<20}")
 
 
 print_variables(a, b, c, "1")
@@ -117,9 +113,7 @@ myfun3(1, 2, 3, first="Geeks", mid="for", last="Geeks")
 
 
 def myfun4(*args, args_cache=[]):
-    print(
-        f"8) function called with args = {args} at {id(args)} and args_cache = {args_cache} at {id(args_cache)}"
-    )
+    print(f"8) function called with args = {args} at {id(args)} and args_cache = {args_cache} at {id(args_cache)}")
     args_cache.append(args)
 
 
@@ -212,17 +206,11 @@ def modify_6(x: List[List[int]]):
     print("inside modify_6")
     print(f"a) x = {x} (address = {id(x)}) x[0] = {x[0]} (address = {id(x[0])})")
     y = x[0]
-    print(
-        f"b) x = {x} (address = {id(x)}) x[0] = {x[0]} (address = {id(x[0])}) y = {y} (address = {id(y)})"
-    )
+    print(f"b) x = {x} (address = {id(x)}) x[0] = {x[0]} (address = {id(x[0])}) y = {y} (address = {id(y)})")
     y.append([[1], [2]])
-    print(
-        f"c) x = {x} (address = {id(x)}) x[0] = {x[0]} (address = {id(x[0])}) y = {y} (address = {id(y)})"
-    )
+    print(f"c) x = {x} (address = {id(x)}) x[0] = {x[0]} (address = {id(x[0])}) y = {y} (address = {id(y)})")
     y = [0]
-    print(
-        f"d) x = {x} (address = {id(x)}) x[0] = {x[0]} (address = {id(x[0])}) y = {y} (address = {id(y)})"
-    )
+    print(f"d) x = {x} (address = {id(x)}) x[0] = {x[0]} (address = {id(x[0])}) y = {y} (address = {id(y)})")
 
 
 print(f"0) Initial = {x_list} (address = {id(x_list)})")
@@ -350,11 +338,11 @@ class FakeClass:
     name = "kostas"
 
     def __getattribute__(self, name: str):
-        # print("__getattribute__")
+        # print("inside __getattribute__")
         super().__getattribute__(name)
 
     def __getattr__(self, name: str):
-        # print("__getattr__")
+        # print("inside __getattr__")
         super().__getattr__(name)
 
 
@@ -445,9 +433,7 @@ class AnotherClass_c:
         pass
 
 
-print(
-    f"7) {issubclass(DerivedClass_c, BaseClass_c)}"
-)  # when issubclass is called the __subclasshook__ is executed
+print(f"7) {issubclass(DerivedClass_c, BaseClass_c)}")  # when issubclass is called the __subclasshook__ is executed
 print(f"8) {issubclass(AnotherClass_c, BaseClass_c)}")
 
 
@@ -660,11 +646,7 @@ print(f"1) before = {x}")
 threads = []
 names = ["thread_1", "thread_2", "thread_3"]
 for name in names:
-    threads.append(
-        threading.Thread(
-            target=lambda x: [x.append(name) for _ in range(10)], args=(x,)
-        )
-    )
+    threads.append(threading.Thread(target=lambda x: [x.append(name) for _ in range(3)], args=(x,)))
 for thread in threads:  # here happens late binding: x has the last value
     thread.start()
 for thread in threads:
@@ -675,14 +657,8 @@ x = []
 print(f"3) before = {x}")
 threads = []
 for name in names:
-    threads.append(
-        threading.Thread(
-            target=lambda x, name=name: [x.append(name) for _ in range(10)], args=(x,)
-        )
-    )
-for (
-    thread
-) in threads:  # here late binding doesn't happen because we store the var in runtime
+    threads.append(threading.Thread(target=lambda x, name=name: [x.append(name) for _ in range(3)], args=(x,)))
+for thread in threads:  # here late binding doesn't happen because we store the var in runtime
     thread.start()
 for thread in threads:
     thread.join()
@@ -959,9 +935,7 @@ print(f"3) lambda again {l_f(2)}")
 
 collection_list = [0, 1, 2, 3, 4]
 collection_tuple = (0, 1, 2, 3, 4)
-list_mapped = map(
-    lambda x: x**2, collection_list
-)  # this is a map object (iterable) that why you call list afterwards
+list_mapped = map(lambda x: x**2, collection_list)  # this is a map object (iterable) that why you call list afterwards
 tuple_mapped = map(lambda x: x**2, collection_tuple)
 print(f"4) collection list before {collection_list} and after {list(list_mapped)}")
 print(f"5) collection tuple before {collection_tuple} and after {list(tuple_mapped)}")
@@ -1211,12 +1185,8 @@ print(f"2) object = {anObject} at address {id(anObject)} and type = {type(anObje
 
 class_var = aClass
 class_var.amIaClass = True
-print(
-    f"3) is class_var a class {class_var.amIaClass} type = {type(class_var)} address = {id(class_var)}"
-)
-print(
-    f"4) is aClass a class {aClass.amIaClass} type = {type(aClass)} address = {id(aClass)}"
-)
+print(f"3) is class_var a class {class_var.amIaClass} type = {type(class_var)} address = {id(class_var)}")
+print(f"4) is aClass a class {aClass.amIaClass} type = {type(aClass)} address = {id(aClass)}")
 
 
 # here type is used to create a class on the fly
