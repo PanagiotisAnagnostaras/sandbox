@@ -3,15 +3,17 @@
 import rospy
 from std_msgs.msg import String
 
-def callback(data):
-    rospy.loginfo("I heard: %s", data.data)
+class Listener:
+    def __init__(self):
+        rospy.init_node('listener', anonymous=True)
+        rospy.Subscriber('chatter', String, callback)
+        
+    def callback(data):
+        rospy.loginfo("I heard: %s", data.data)
 
-def listener():
-    rospy.init_node('listener', anonymous=True)
-
-    rospy.Subscriber('chatter', String, callback)
-
-    rospy.spin()
+    def listen():
+        rospy.spin()
 
 if __name__ == '__main__':
-    listener()
+    listener = Listener()
+    listener.listen()
