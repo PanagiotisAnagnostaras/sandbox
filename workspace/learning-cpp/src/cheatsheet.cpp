@@ -68,6 +68,7 @@ int main() {
    public:
     Shape(int volume, int mass) : volume_(volume), mass_(mass) {};
     int getMass() { return mass_; };
+    void setMass(int mass) { mass_ = mass; };
 
    private:
     int volume_;
@@ -78,9 +79,20 @@ int main() {
   Shape *shape_p = new Shape(1, 1);
   delete shape_p;
 
-
   // Smart pointers
   // - Basically it calls the delete when it goes out of scope
+
   // Smart pointers: unique_ptr
-  std::unique_ptr<Shape> shape_up_1(new Shape(2,2));
+  std::unique_ptr<Shape> shape_up_1(new Shape(2, 2));
+  shape_up_1->getMass();
+  std::unique_ptr<Shape> shape_up_2 = std::move(shape_up_1);
+  // shape_up_1->getMass(); -> this will fail
+
+  // Smart pointers: shared_ptr
+  std::shared_ptr<Shape> shape_sp_1(new Shape(2, 2));
+  std::shared_ptr<Shape> shape_sp_2 = shape_sp_1;
+  shape_sp_2->setMass(3);
+  std::cout << "Mass of shape_sp_1 = " << shape_sp_1->getMass() << std::endl;
+  std::cout << "Pointers pointing to the same object = "
+            << shape_sp_1.use_count() << std::endl;
 }
