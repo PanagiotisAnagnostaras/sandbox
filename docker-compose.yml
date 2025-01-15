@@ -5,12 +5,12 @@ services:
     build: .
     container_name: ros-noetic-container
     volumes:
-      - ./workspace:/workspace  # Mounts local workspace to the container
+      - ./workspace:/workspace
     environment:
-      - DISPLAY=${DISPLAY}  # For GUI apps like Rviz or Gazebo (optional)
+      - DISPLAY=${DISPLAY}
     devices:
-      - "/dev/dri:/dev/dri"  # For GUI apps to access the display (optional)
-    network_mode: host  # For ROS networking (optional)
+      - "/dev/dri:/dev/dri"
+    network_mode: host
     stdin_open: true
     tty: true
     command: bash
