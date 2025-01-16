@@ -1,17 +1,18 @@
 {
     "configurations": [
-      {
-        "name": "Linux",
-        "includePath": [
-          "/opt/ros/noetic/include",  
-        ],
-        "defines": [],
-        "compilerPath": "/usr/bin/gcc",
-        "cStandard": "c17",
-        "cppStandard": "gnu++14",
-        "intelliSenseMode": "linux-gcc-x64"
-      }
+        {
+            "name": "Linux",
+            "includePath": [
+                "/opt/ros/noetic/include",
+                "${workspaceFolder}/catkin_ws/src/my_cpp_pack/include"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c17",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "linux-gcc-x64",
+            "configurationProvider": "ms-vscode.cmake-tools"
+        }
     ],
     "version": 4
-  }
-  
+}

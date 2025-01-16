@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(publisher)
+project(my_python_pack)
 
 find_package(catkin REQUIRED COMPONENTS
-  roscpp
+  rospy
   std_msgs
 )
 
@@ -12,5 +12,9 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(publisher src/publisher.cpp)
-target_link_libraries(publisher ${catkin_LIBRARIES})
+catkin_install_python(PROGRAMS
+  scripts/my_node.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+catkin_python_setup()

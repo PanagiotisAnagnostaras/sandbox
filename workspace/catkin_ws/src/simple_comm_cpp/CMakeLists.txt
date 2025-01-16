@@ -12,12 +12,6 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(talker src/talker.cpp)
-target_link_libraries(talker ${catkin_LIBRARIES})
-
-add_executable(listener src/listener.cpp)
-target_link_libraries(listener ${catkin_LIBRARIES})
-
 add_executable(robotics_int_solved_1 src/robotics_int_solved_1.cpp)
 target_link_libraries(robotics_int_solved_1 ${catkin_LIBRARIES})
 
