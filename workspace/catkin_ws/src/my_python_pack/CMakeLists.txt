@@ -13,7 +13,7 @@ include_directories(
 )
 
 catkin_install_python(PROGRAMS
-  scripts/my_node.py
+  src/my_python_pack/my_node.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

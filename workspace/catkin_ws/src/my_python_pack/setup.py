@@ -1,11 +1,9 @@
-from setuptools import setup
+from distutils.core import setup
+from catkin_pkg.python_setup import generate_distutils_setup
 
-setup(
-    name='my_python_pack',
-    version='0.0.0',
+d = generate_distutils_setup(
     packages=['my_python_pack'],
-    install_requires=['setuptools', 'rospy', 'std_msgs'],
-    scripts=[
-        'scripts/my_node.py',
-    ],
+    package_dir={'': 'src'}
 )
+
+setup(**d)
