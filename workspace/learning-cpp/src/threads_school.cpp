@@ -4,7 +4,7 @@ using namespace threadsSchool;
 
 ThreadsSchool::ThreadsSchool()
 {
-    n_ = 10000;
+    n_ = 10000000;
     sum_wo_mutex_ = 0;
     sum_w_mutex_ = 0;
 }
