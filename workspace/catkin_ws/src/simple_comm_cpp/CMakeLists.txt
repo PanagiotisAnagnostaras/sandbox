@@ -20,3 +20,6 @@ target_link_libraries(robotics_int_solved_2 ${catkin_LIBRARIES})
 
 add_executable(robotics_int_solved_3 src/robotics_int_solved_3.cpp)
 target_link_libraries(robotics_int_solved_3 ${catkin_LIBRARIES})
+
+add_executable(robotics_int_solved_4 src/robotics_int_solved_4.cpp)
+target_link_libraries(robotics_int_solved_4 ${catkin_LIBRARIES})
