@@ -1,3 +1,6 @@
 {
-    "cmake.sourceDirectory": "/workspace/learning-cpp"
+    "cmake.sourceDirectory": "/workspace/learning-cpp",
+    "files.associations": {
+        "thread": "cpp"
+    }
 }
